@@ -19,4 +19,7 @@ public interface GameApi {
 
     @GetMapping
     ResponseEntity<List<Game>> getAllGames();
+
+    @PostMapping("/{id}")
+    ResponseEntity<Game> updateGame(@PathVariable String id, @RequestBody String nameGame);
 }

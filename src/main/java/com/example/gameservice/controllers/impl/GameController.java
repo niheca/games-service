@@ -34,4 +34,9 @@ public class GameController implements GameApi {
         return ResponseEntity.ok(this.gameService.getAllGames());
     }
 
+    @Override
+    public ResponseEntity<Game> updateGame(String id, String gameName) {
+        return ResponseEntity.ok(this.gameService.updateGame(id,gameName));
+    }
+
 }
