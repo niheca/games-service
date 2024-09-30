@@ -3,7 +3,6 @@ package com.example.gameservice.controllers.impl;
 import com.example.gameservice.commons.entities.Game;
 import com.example.gameservice.controllers.GameApi;
 import com.example.gameservice.services.GameService;
-import com.example.gameservice.services.impl.GameServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
