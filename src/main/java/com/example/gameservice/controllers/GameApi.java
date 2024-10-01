@@ -14,12 +14,15 @@ public interface GameApi {
     @PostMapping()
     ResponseEntity<Game> saveGame(@RequestBody Game game);
 
-    @GetMapping("/{id}")
+    @GetMapping(ApiPathVariables.ID_ROUTE)
     ResponseEntity<Game> getGameById(@PathVariable String id);
 
     @GetMapping
     ResponseEntity<List<Game>> getAllGames();
 
-    @PostMapping("/{id}")
-    ResponseEntity<Game> updateGame(@PathVariable String id, @RequestBody String nameGame);
+    @PutMapping(ApiPathVariables.ID_ROUTE)
+    ResponseEntity<Game> updateGame(@PathVariable String id, @RequestBody Game nameGame);
+
+    @DeleteMapping(ApiPathVariables.ID_ROUTE)
+    ResponseEntity<Void> deleteGame(@PathVariable String id);
 }

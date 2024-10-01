@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class GameServiceImpl implements GameService {
@@ -16,7 +16,6 @@ public class GameServiceImpl implements GameService {
     private final GameRepository gameRepository;
 
     public GameServiceImpl(GameRepository gameRepository) {
-
         this.gameRepository = gameRepository;
     }
 
@@ -37,9 +36,15 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public Game updateGame(String gameId, String newGameName) {
-        Game game = this.getGameById(gameId);
-        game.setName(newGameName);
-        return this.gameRepository.save(game);
+    public Game updateGame(String id, Game game) {
+        Game oldGame =  getGameById(id);
+        oldGame.setName(game.getName());
+        return this.gameRepository.save(oldGame);
+    }
+
+    @Override
+    public void deleteGame(String gameId) {
+        Game gameToDelete = getGameById(gameId);
+        this.gameRepository.delete(gameToDelete);
     }
 }
