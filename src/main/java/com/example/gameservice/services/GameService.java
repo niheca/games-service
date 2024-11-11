@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface GameService {
 
-    Game saveGame(Game game);
+    Game saveGame( Game game);
 
     Game getGameById(String gameId);
 

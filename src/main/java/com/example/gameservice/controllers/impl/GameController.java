@@ -18,9 +18,11 @@ public class GameController implements GameApi {
         this.gameService = gameService;
     }
 
+
     //GUARDAR JUEGO
     @Override
-    public ResponseEntity<Game> saveGame(@RequestBody Game game){
+    public ResponseEntity<Game> saveGame( String userId , Game game) {
+        game.setUserId(Integer.parseInt(userId));
         var gameCreated = this.gameService.saveGame(game);
         return ResponseEntity.ok(gameCreated);
     }
